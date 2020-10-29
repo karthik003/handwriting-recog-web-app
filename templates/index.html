@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HandwriteX</title>
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+     
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <style>
+        .button {
+            width: auto;
+            color: white;
+            font-weight: bolder;
+            padding: 10px 50px;
+            border-radius: 20px;
+            border: 2px solid green;
+            background-color: yellowgreen;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type=file] {
+            margin-top: 40px;
+            font-size: 20px;
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        h1{
+            color:#1B8D0B;
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        style="background-color:#9ACD32;height: 200px;color:white;font-size: 60px;text-align: center;padding-top:100px;">
+        Welcome to HandwriteX</div>
+    <div class="container-fluid mt-5">
+        <div class="row ">
+            <div class="col-5 offset-md-1 text-justify">
+                <h1 class="mb-3">What is HandwriteX</h1>
+                <p style="font-size: 18px;">At HandwriteX, we blend the exceptional techniques of Image Processing and Machine Learning to predict whether brain tumor is present
+                    with utmost accuracy and efficiency.
+                </p>
+            </div>
+            <div class="col-5 offset-md-1 text-justify">
+                <h1 class="mb-3">How to go about?</h1>
+            
+                <span style="font-size: 18px;"><i class="fa fa-hand-point-right mr-2" style="color:#1B8D0B;font-size: 20px;"></i>Upload an image of any alphanumeric character as input</span><br>
+                <span style="font-size: 18px;"><i class="fa fa-hand-point-right mr-2" style="color:#1B8D0B;font-size: 20px;"></i>Receive the detected character immediately!</span>
+            </div>
+               
+        </div>
+    </div>
+    <form action='/predict' method="post" enctype="multipart/form-data">
+        <div style="text-align: center;">
+            <p style="font-size: 30px;" class="mt-5">Please enter your name here</p>
+            <input type="text" name="name" style="margin-left:55px;"><br>
+            <p style="font-size: 30px;" class="mt-5">Please upload the alphabet
+                image here</p>
+            <input type=file name=file style="margin-left:55px;"><br><br>
+            <input class="button" type=submit value=Predict><br><br>
+        </div>
+
+
+
+    </form>
+    {% block body %}
+
+    {% endblock %}
+</body>
+
+</html>
